@@ -1,7 +1,7 @@
 {
   "cxxNamespace": ["<<cxxNamespace>>"],
   "ios": {
-    "iosModuleName": "<<iosModuleName>>"
+    "iosModuleName": "RNMediaController"
   },
   "android": {
     "androidNamespace": ["<<androidNamespace>>"],

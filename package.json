@@ -22,6 +22,7 @@
     "ios/**/*.swift",
     "app.plugin.js",
     "*.podspec",
+    "nitrogen/**/*",
     "README.md"
   ],
   "scripts": {

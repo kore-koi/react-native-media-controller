@@ -4,7 +4,7 @@
     "iosModuleName": "RNMediaController"
   },
   "android": {
-    "androidNamespace": ["<<androidNamespace>>"],
+    "androidNamespace": ["mediacontroller"],
     "androidCxxLibName": "<<androidCxxLibName>>"
   },
   "autolinking": {},

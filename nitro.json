@@ -7,6 +7,10 @@
     "androidNamespace": ["mediacontroller"],
     "androidCxxLibName": "RNMediaController"
   },
-  "autolinking": {},
+  "autolinking": {
+    "MPVolumeViewController": {
+      "swift": "HybridMPVolumeViewController"
+    }
+  },
   "ignorePaths": ["node_modules"]
 }

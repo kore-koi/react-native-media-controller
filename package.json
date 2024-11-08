@@ -39,7 +39,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:kore-koi/react-native-media-controller.git"
+    "url": "git+ssh://git@github.com/kore-koi/react-native-media-controller.git"
   },
   "author": "kore-koi <me@andrealin.it> (https://github.com/kore-koi)",
   "license": "MIT",

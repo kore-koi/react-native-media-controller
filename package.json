@@ -1,7 +1,7 @@
 {
-  "name": "react-native-nitro-template",
+  "name": "@korekoi/react-native-media-controller",
   "version": "0.0.1",
-  "description": "A template for Nitro Modules.",
+  "description": "🔊 Media Controller for React Native",
   "main": "lib/index",
   "module": "lib/index",
   "types": "lib/index.d.ts",
@@ -39,14 +39,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mrousavy/nitro.git"
+    "url": "git@github.com:kore-koi/react-native-media-controller.git"
   },
-  "author": "Marc Rousavy <me@mrousavy.com> (https://github.com/mrousavy)",
+  "author": "kore-koi <me@andrealin.it> (https://github.com/kore-koi)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mrousavy/nitro/issues"
+    "url": "https://github.com/kore-koi/react-native-media-controller/issues"
   },
-  "homepage": "https://github.com/mrousavy/nitro#readme",
+  "homepage": "https://github.com/kore-koi/react-native-media-controller/blob/main/README.md",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

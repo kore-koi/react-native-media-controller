@@ -1,6 +1,6 @@
 {
   "name": "@korekoi/react-native-media-controller",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "🔊 Media Controller for React Native",
   "main": "lib/index",
   "module": "lib/index",

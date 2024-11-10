@@ -11,6 +11,7 @@
     "src",
     "react-native.config.js",
     "lib",
+    "nitrogen",
     "android/build.gradle",
     "android/gradle.properties",
     "android/CMakeLists.txt",
@@ -22,7 +23,6 @@
     "ios/**/*.swift",
     "app.plugin.js",
     "*.podspec",
-    "nitrogen/**/*",
     "README.md"
   ],
   "scripts": {
@@ -32,7 +32,8 @@
     "lint": "eslint \"**/*.{js,ts,tsx}\" --fix",
     "lint-ci": "eslint \"**/*.{js,ts,tsx}\" -f @jamesacarr/github-actions",
     "typescript": "tsc",
-    "specs": "typescript && nitro-codegen --logLevel=\"debug\""
+    "specs": "typescript && nitro-codegen --logLevel=\"debug\"",
+    "example:pod:install": "cd example/ios && pod install --verbose && cd ../.."
   },
   "keywords": [
     "react-native",

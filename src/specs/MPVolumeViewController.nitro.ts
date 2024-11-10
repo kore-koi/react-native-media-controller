@@ -5,5 +5,6 @@ export interface MPVolumeViewControllerSetVolumeParams {
 }
 
 export interface MPVolumeViewController extends HybridObject<{ ios: 'swift' }> {
-  setVolume(params: MPVolumeViewControllerSetVolumeParams): void
+  setVolume(params: MPVolumeViewControllerSetVolumeParams): Promise<void>
+  getVolume(): Promise<number>
 }

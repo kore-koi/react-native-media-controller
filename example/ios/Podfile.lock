@@ -1530,7 +1530,7 @@ PODS:
     - React-logger (= 0.76.1)
     - React-perflogger (= 0.76.1)
     - React-utils (= 0.76.1)
-  - RNMediaController (0.0.1):
+  - RNMediaController (0.0.2):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1825,7 +1825,7 @@ SPEC CHECKSUMS:
   React-utils: 5362bd16a9563f9916e7a56c011ddc533507650f
   ReactCodegen: 865bafc5c17ec2181620ced1a32c39c38ab2951d
   ReactCommon: 422e364463f33e336fc4db196aeb50fd801d90d6
-  RNMediaController: 9243efa3750ef2b5e298b3649274b38d8ede84c6
+  RNMediaController: a1c44634e26a4bdef6b8687908a84c9eb6627bfc
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: db69236006b8b1c6d55ab453390c882306cbf219
 

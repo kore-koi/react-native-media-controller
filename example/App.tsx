@@ -27,6 +27,7 @@ function App(): React.JSX.Element {
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    flex: 1,
   };
 
   return (
@@ -50,6 +51,7 @@ function App(): React.JSX.Element {
             <Button title="Set Volume to 0.123" onPress={() => VolumeController.setVolume(0.123)}/>
             <Button title="Set Volume to 1" onPress={() => VolumeController.setVolume(1)}/>
             <Button title="Set Volume to 2" onPress={() => VolumeController.setVolume(2)}/>
+            <Button title="Get volume" onPress={async() => console.log(await VolumeController.getVolume())}/>
         </View>
       </ScrollView>
     </SafeAreaView>

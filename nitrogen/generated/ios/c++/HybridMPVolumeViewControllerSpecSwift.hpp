@@ -15,6 +15,8 @@ namespace RNMediaController { class HybridMPVolumeViewControllerSpecCxx; }
 // Forward declaration of `MPVolumeViewControllerSetVolumeParams` to properly resolve imports.
 namespace margelo::nitro::mediacontroller { struct MPVolumeViewControllerSetVolumeParams; }
 
+#include <future>
+#include <NitroModules/PromiseHolder.hpp>
 #include "MPVolumeViewControllerSetVolumeParams.hpp"
 
 #if __has_include(<NitroModules/HybridContext.hpp>)
@@ -60,8 +62,13 @@ namespace margelo::nitro::mediacontroller {
 
   public:
     // Methods
-    inline void setVolume(const MPVolumeViewControllerSetVolumeParams& params) override {
-      _swiftPart.setVolume(params);
+    inline std::future<void> setVolume(const MPVolumeViewControllerSetVolumeParams& params) override {
+      auto __result = _swiftPart.setVolume(params);
+      return __result.getFuture();
+    }
+    inline std::future<double> getVolume() override {
+      auto __result = _swiftPart.getVolume();
+      return __result.getFuture();
     }
 
   private:

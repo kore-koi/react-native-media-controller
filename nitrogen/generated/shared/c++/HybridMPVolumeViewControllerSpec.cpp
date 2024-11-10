@@ -15,6 +15,7 @@ namespace margelo::nitro::mediacontroller {
     // load custom methods/properties
     registerHybrids(this, [](Prototype& prototype) {
       prototype.registerHybridMethod("setVolume", &HybridMPVolumeViewControllerSpec::setVolume);
+      prototype.registerHybridMethod("getVolume", &HybridMPVolumeViewControllerSpec::getVolume);
     });
   }
 

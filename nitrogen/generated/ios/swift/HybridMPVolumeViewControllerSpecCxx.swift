@@ -99,10 +99,33 @@ public class HybridMPVolumeViewControllerSpecCxx {
 
   // Methods
   @inline(__always)
-  public func setVolume(params: MPVolumeViewControllerSetVolumeParams) -> Void {
+  public func setVolume(params: MPVolumeViewControllerSetVolumeParams) -> bridge.PromiseHolder_void_ {
     do {
-      try self.__implementation.setVolume(params: params)
-      return 
+      let __result = try self.__implementation.setVolume(params: params)
+      return { () -> bridge.PromiseHolder_void_ in
+        let __promiseHolder = bridge.create_PromiseHolder_void_()
+        __result
+          .then({ __result in __promiseHolder.resolve() })
+          .catch({ __error in __promiseHolder.reject(std.string(String(describing: __error))) })
+        return __promiseHolder
+      }()
+    } catch {
+      let __message = "\(error.localizedDescription)"
+      fatalError("Swift errors can currently not be propagated to C++! See https://github.com/swiftlang/swift/issues/75290 (Error: \(__message))")
+    }
+  }
+  
+  @inline(__always)
+  public func getVolume() -> bridge.PromiseHolder_double_ {
+    do {
+      let __result = try self.__implementation.getVolume()
+      return { () -> bridge.PromiseHolder_double_ in
+        let __promiseHolder = bridge.create_PromiseHolder_double_()
+        __result
+          .then({ __result in __promiseHolder.resolve(__result) })
+          .catch({ __error in __promiseHolder.reject(std.string(String(describing: __error))) })
+        return __promiseHolder
+      }()
     } catch {
       let __message = "\(error.localizedDescription)"
       fatalError("Swift errors can currently not be propagated to C++! See https://github.com/swiftlang/swift/issues/75290 (Error: \(__message))")

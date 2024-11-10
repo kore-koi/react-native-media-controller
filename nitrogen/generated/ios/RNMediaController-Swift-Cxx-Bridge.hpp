@@ -17,6 +17,8 @@ namespace RNMediaController { class HybridMPVolumeViewControllerSpecCxx; }
 
 // Include C++ defined types
 #include "HybridMPVolumeViewControllerSpec.hpp"
+#include <NitroModules/PromiseHolder.hpp>
+#include <future>
 #include <memory>
 
 /**
@@ -25,6 +27,24 @@ namespace RNMediaController { class HybridMPVolumeViewControllerSpecCxx; }
  */
 namespace margelo::nitro::mediacontroller::bridge::swift {
 
+  // pragma MARK: PromiseHolder<void>
+  /**
+   * Specialized version of `PromiseHolder<void>`.
+   */
+  using PromiseHolder_void_ = PromiseHolder<void>;
+  inline PromiseHolder<void> create_PromiseHolder_void_() {
+    return PromiseHolder<void>();
+  }
+  
+  // pragma MARK: PromiseHolder<double>
+  /**
+   * Specialized version of `PromiseHolder<double>`.
+   */
+  using PromiseHolder_double_ = PromiseHolder<double>;
+  inline PromiseHolder<double> create_PromiseHolder_double_() {
+    return PromiseHolder<double>();
+  }
+  
   // pragma MARK: std::shared_ptr<margelo::nitro::mediacontroller::HybridMPVolumeViewControllerSpec>
   /**
    * Specialized version of `std::shared_ptr<margelo::nitro::mediacontroller::HybridMPVolumeViewControllerSpec>`.

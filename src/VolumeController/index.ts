@@ -1,22 +1,35 @@
 import { Platform } from 'react-native'
 import { MPVolumeViewController } from './MPVolumeController'
-import { NO_OP } from '../helpers/utilities'
+import { ASYNC_NO_OP } from '../helpers/utilities'
 
 interface VolumeControllerType {
-  setVolume: (volume: number) => void
+  setVolume: (volume: number) => Promise<void>
+  getVolume: () => Promise<number>
 }
 
 export const VolumeController: VolumeControllerType = {
-  setVolume: (volume: number) => {
+  setVolume: async (volume: number) => {
     const setVolume = Platform.select({
-      ios: () => MPVolumeViewController.setVolume({ volume }),
-      android: NO_OP,
+      ios: async () => MPVolumeViewController.setVolume({ volume }),
+      android: ASYNC_NO_OP,
     })
 
     if (!setVolume) {
       throw new Error('VolumeController is not supported on this platform')
     }
 
-    setVolume()
+    return setVolume()
+  },
+  getVolume: async () => {
+    const getVolume = Platform.select({
+      ios: async () => MPVolumeViewController.getVolume(),
+      android: async () => 0,
+    })
+
+    if (!getVolume) {
+      throw new Error('VolumeController is not supported on this platform')
+    }
+
+    return getVolume()
   },
 }

@@ -27,10 +27,13 @@ target_sources(
   # Autolinking Setup
   ../nitrogen/generated/android/RNMediaControllerOnLoad.cpp
   # Shared Nitrogen C++ sources
+  ../nitrogen/generated/shared/c++/HybridAudioManagerSpec.cpp
   ../nitrogen/generated/shared/c++/HybridMPVolumeViewControllerSpec.cpp
+  ../nitrogen/generated/shared/c++/HybridAudioManagerSpec.cpp
   ../nitrogen/generated/shared/c++/HybridMPVolumeViewControllerSpec.cpp
   # Android-specific Nitrogen C++ sources
-  
+  ../nitrogen/generated/android/c++/JHybridAudioManagerSpec.cpp
+  ../nitrogen/generated/android/c++/JHybridAudioManagerSpec.cpp
 )
 
 # Add all libraries required by the generated specs

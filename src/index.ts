@@ -2,3 +2,4 @@
 export * from './VolumeController'
 
 export * from './VolumeController/MPVolumeController'
+export * from './VolumeController/AudioManager'

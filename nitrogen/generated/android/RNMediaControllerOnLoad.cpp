@@ -11,7 +11,8 @@
 #include <fbjni/fbjni.h>
 #include <NitroModules/HybridObjectRegistry.hpp>
 
-
+#include "JHybridAudioManagerSpec.hpp"
+#include <NitroModules/JNISharedPtr.hpp>
 
 namespace margelo::nitro::mediacontroller {
 
@@ -22,10 +23,26 @@ int initialize(JavaVM* vm) {
 
   return facebook::jni::initialize(vm, [] {
     // Register native JNI methods
-    
+    margelo::nitro::mediacontroller::JHybridAudioManagerSpec::registerNatives();
+    margelo::nitro::mediacontroller::JHybridAudioManagerSpec::registerNatives();
 
     // Register Nitro Hybrid Objects
+    HybridObjectRegistry::registerHybridObjectConstructor(
+      "AudioManager",
+      []() -> std::shared_ptr<HybridObject> {
+        static auto javaClass = jni::findClassStatic("com/margelo/nitro/mediacontroller/HybridAudioManager");
+        static auto defaultConstructor = javaClass->getConstructor<JHybridAudioManagerSpec::javaobject()>();
     
+        auto instance = javaClass->newObject(defaultConstructor);
+    #ifdef NITRO_DEBUG
+        if (instance == nullptr) [[unlikely]] {
+          throw std::runtime_error("Failed to create an instance of \"JHybridAudioManagerSpec\" - the constructor returned null!");
+        }
+    #endif
+        auto globalRef = jni::make_global(instance);
+        return JNISharedPtr::make_shared_from_jni<JHybridAudioManagerSpec>(globalRef);
+      }
+    );
   });
 }
 

@@ -10,6 +10,9 @@
   "autolinking": {
     "MPVolumeViewController": {
       "swift": "HybridMPVolumeViewController"
+    },
+    "AudioManager": {
+      "kotlin": "HybridAudioManager"
     }
   },
   "ignorePaths": ["node_modules"]

@@ -1,6 +1,6 @@
 import { Platform } from 'react-native'
 import { MPVolumeViewController } from './MPVolumeController'
-import { ASYNC_NO_OP } from '../helpers/utilities'
+import { AudioManager } from './AudioManager'
 
 interface VolumeControllerType {
   setVolume: (volume: number) => Promise<void>
@@ -11,7 +11,7 @@ export const VolumeController: VolumeControllerType = {
   setVolume: async (volume: number) => {
     const setVolume = Platform.select({
       ios: async () => MPVolumeViewController.setVolume({ volume }),
-      android: ASYNC_NO_OP,
+      android: async () => AudioManager.setVolume({ volume }),
     })
 
     if (!setVolume) {
@@ -23,7 +23,7 @@ export const VolumeController: VolumeControllerType = {
   getVolume: async () => {
     const getVolume = Platform.select({
       ios: async () => MPVolumeViewController.getVolume(),
-      android: async () => 0,
+      android: async () => AudioManager.getVolume(),
     })
 
     if (!getVolume) {

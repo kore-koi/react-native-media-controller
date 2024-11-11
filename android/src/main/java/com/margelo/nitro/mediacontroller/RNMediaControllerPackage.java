@@ -1,4 +1,4 @@
-package com.margelo.nitro.<<androidNamespace>>;
+package com.margelo.nitro.mediacontroller;
 
 import android.util.Log;
 

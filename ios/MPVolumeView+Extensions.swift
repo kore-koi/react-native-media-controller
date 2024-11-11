@@ -14,9 +14,7 @@ extension MPVolumeView {
         let slider = volumeView.subviews.first(where: { $0 is UISlider }) as? UISlider
         
         // https://stackoverflow.com/a/50740234
-        // We might need to add a delay to deadline
-        // on my phone (iPhone 15 Pro, iOS 18.1) seems to be working fine without though
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.01) {
             slider?.value = volume
         }
     }

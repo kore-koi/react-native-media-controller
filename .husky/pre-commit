@@ -1,0 +1,8 @@
+#! /bin/sh
+echo "Runinng precommit-hook"
+
+echo "Running tsc and nitrogen..."
+npm run build
+echo "Build completed"
+
+git add nitrogen

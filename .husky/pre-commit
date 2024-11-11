@@ -1,6 +1,10 @@
 #! /bin/sh
 echo "Runinng precommit-hook"
 
+echo "Running deep-clean..."
+npm run deep-clean
+echo "Clean completed"
+
 echo "Running tsc and nitrogen..."
 npm run build
 echo "Build completed"

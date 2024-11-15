@@ -16,6 +16,7 @@ namespace margelo::nitro::mediacontroller { struct MPVolumeViewControllerSetVolu
 // Include C++ defined types
 #include "HybridMPVolumeViewControllerSpec.hpp"
 #include "MPVolumeViewControllerSetVolumeParams.hpp"
+#include <functional>
 #include <future>
 #include <memory>
 

@@ -11,11 +11,10 @@ const AudioManagerStub: AudioManagerType = {
   equals: () => false,
   dispose: () => {},
   setVolume: async () => {
-    console.warn('AudioManager.setVolume is only supported on Android.')
+    throw new Error('AudioManager.setVolume is only supported on Android.')
   },
   getVolume: async () => {
-    console.warn('AudioManager.getVolume is only supported on Android.')
-    return 0
+    throw new Error('AudioManager.getVolume is only supported on Android.')
   },
 }
 

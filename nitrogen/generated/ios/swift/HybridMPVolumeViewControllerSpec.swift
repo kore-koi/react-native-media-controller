@@ -34,4 +34,5 @@ public protocol HybridMPVolumeViewControllerSpec: AnyObject, HybridObjectSpec {
   // Methods
   func setVolume(params: MPVolumeViewControllerSetVolumeParams) throws -> Promise<Void>
   func getVolume() throws -> Promise<Double>
+  func listenToVolumeChange(onChange: @escaping ((_ o: Double) -> Void)) throws -> Void
 }

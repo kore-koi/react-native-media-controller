@@ -11,11 +11,19 @@ const MPVolumeViewControllerStub: MPVolumeViewControllerType = {
   equals: () => false,
   dispose: () => {},
   setVolume: async () => {
-    console.warn('MPVolumeViewController.setVolume is only supported on iOS.')
+    throw new Error(
+      'MPVolumeViewController.setVolume is only supported on iOS.'
+    )
   },
   getVolume: async () => {
-    console.warn('MPVolumeViewController.getVolume is only supported on iOS.')
-    return 0
+    throw new Error(
+      'MPVolumeViewController.getVolume is only supported on iOS.'
+    )
+  },
+  listenToVolumeChange: () => {
+    throw new Error(
+      'MPVolumeViewController.listenToVolumeChange is only supported on iOS.'
+    )
   },
 }
 

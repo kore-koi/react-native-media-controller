@@ -131,4 +131,20 @@ public class HybridMPVolumeViewControllerSpecCxx {
       fatalError("Swift errors can currently not be propagated to C++! See https://github.com/swiftlang/swift/issues/75290 (Error: \(__message))")
     }
   }
+  
+  @inline(__always)
+  public func listenToVolumeChange(onChange: bridge.Func_void_double) -> Void {
+    do {
+      try self.__implementation.listenToVolumeChange(onChange: { () -> ((Double) -> Void) in
+        let __sharedClosure = bridge.share_Func_void_double(onChange)
+        return { (__o: Double) -> Void in
+          __sharedClosure.pointee.call(__o)
+        }
+      }())
+      return 
+    } catch {
+      let __message = "\(error.localizedDescription)"
+      fatalError("Swift errors can currently not be propagated to C++! See https://github.com/swiftlang/swift/issues/75290 (Error: \(__message))")
+    }
+  }
 }

@@ -18,6 +18,7 @@ namespace margelo::nitro::mediacontroller { struct MPVolumeViewControllerSetVolu
 #include <future>
 #include <NitroModules/PromiseHolder.hpp>
 #include "MPVolumeViewControllerSetVolumeParams.hpp"
+#include <functional>
 
 #if __has_include(<NitroModules/HybridContext.hpp>)
 #include <NitroModules/HybridContext.hpp>
@@ -69,6 +70,9 @@ namespace margelo::nitro::mediacontroller {
     inline std::future<double> getVolume() override {
       auto __result = _swiftPart.getVolume();
       return __result.getFuture();
+    }
+    inline void listenToVolumeChange(const std::function<void(double /* o */)>& onChange) override {
+      _swiftPart.listenToVolumeChange(onChange);
     }
 
   private:

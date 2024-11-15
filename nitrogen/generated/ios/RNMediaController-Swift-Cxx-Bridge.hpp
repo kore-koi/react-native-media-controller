@@ -18,6 +18,7 @@ namespace RNMediaController { class HybridMPVolumeViewControllerSpecCxx; }
 // Include C++ defined types
 #include "HybridMPVolumeViewControllerSpec.hpp"
 #include <NitroModules/PromiseHolder.hpp>
+#include <functional>
 #include <future>
 #include <memory>
 
@@ -43,6 +44,34 @@ namespace margelo::nitro::mediacontroller::bridge::swift {
   using PromiseHolder_double_ = PromiseHolder<double>;
   inline PromiseHolder<double> create_PromiseHolder_double_() {
     return PromiseHolder<double>();
+  }
+  
+  // pragma MARK: std::function<void(double /* o */)>
+  /**
+   * Specialized version of `std::function<void(double)>`.
+   */
+  using Func_void_double = std::function<void(double /* o */)>;
+  /**
+   * Wrapper class for a `std::function<void(double / * o * /)>`, this can be used from Swift.
+   */
+  class Func_void_double_Wrapper final {
+  public:
+    explicit Func_void_double_Wrapper(const std::function<void(double /* o */)>& func): _function(func) {}
+    explicit Func_void_double_Wrapper(std::function<void(double /* o */)>&& func): _function(std::move(func)) {}
+    inline void call(double o) const {
+      _function(o);
+    }
+  private:
+    std::function<void(double /* o */)> _function;
+  };
+  inline Func_void_double create_Func_void_double(void* _Nonnull closureHolder, void(* _Nonnull call)(void* _Nonnull /* closureHolder */, double), void(* _Nonnull destroy)(void* _Nonnull)) {
+    std::shared_ptr<void> sharedClosureHolder(closureHolder, destroy);
+    return Func_void_double([sharedClosureHolder, call](double o) -> void {
+      call(sharedClosureHolder.get(), o);
+    });
+  }
+  inline std::shared_ptr<Func_void_double_Wrapper> share_Func_void_double(const Func_void_double& value) {
+    return std::make_shared<Func_void_double_Wrapper>(value);
   }
   
   // pragma MARK: std::shared_ptr<margelo::nitro::mediacontroller::HybridMPVolumeViewControllerSpec>

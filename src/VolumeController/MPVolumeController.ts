@@ -20,7 +20,7 @@ const MPVolumeViewControllerStub: MPVolumeViewControllerType = {
       'MPVolumeViewController.getVolume is only supported on iOS.'
     )
   },
-  listenToVolumeChange: () => {
+  addListener: () => {
     throw new Error(
       'MPVolumeViewController.listenToVolumeChange is only supported on iOS.'
     )

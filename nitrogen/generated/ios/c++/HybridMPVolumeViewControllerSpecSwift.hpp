@@ -71,8 +71,8 @@ namespace margelo::nitro::mediacontroller {
       auto __result = _swiftPart.getVolume();
       return __result.getFuture();
     }
-    inline void listenToVolumeChange(const std::function<void(double /* o */)>& onChange) override {
-      _swiftPart.listenToVolumeChange(onChange);
+    inline void addListener(const std::function<void(double /* o */)>& onChange) override {
+      _swiftPart.addListener(onChange);
     }
 
   private:

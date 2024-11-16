@@ -53,7 +53,7 @@ namespace margelo::nitro::mediacontroller {
       // Methods
       virtual std::future<void> setVolume(const MPVolumeViewControllerSetVolumeParams& params) = 0;
       virtual std::future<double> getVolume() = 0;
-      virtual void listenToVolumeChange(const std::function<void(double /* o */)>& onChange) = 0;
+      virtual void addListener(const std::function<void(double /* o */)>& onChange) = 0;
 
     protected:
       // Hybrid Setup

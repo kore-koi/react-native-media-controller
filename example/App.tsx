@@ -5,7 +5,7 @@
  * @format
  */
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -29,7 +29,8 @@ import Slider from '@react-native-community/slider';
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
-  const [volume, _setVolume] = React.useState<number>(0);
+  const init = useRef<boolean>(false);
+  const [volume, _setVolume] = useState<number>(0);
 
   const setVolume = async (value: number) => {
     VolumeController.setVolume(value);
@@ -38,6 +39,18 @@ function App(): React.JSX.Element {
 
   useEffect(() => {
     VolumeController.getVolume().then(setVolume);
+  }, []);
+
+  useEffect(() => {
+    // Ensure that the listener is only added once
+    if (!init.current) {
+      init.current = true;
+      VolumeController.addListener((newVolume) => {
+        console.log('new volume', newVolume);
+        _setVolume(newVolume);
+      });
+      return;
+    }
   }, []);
 
   const backgroundStyle = {

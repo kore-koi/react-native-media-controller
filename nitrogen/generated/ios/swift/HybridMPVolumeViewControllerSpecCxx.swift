@@ -133,9 +133,9 @@ public class HybridMPVolumeViewControllerSpecCxx {
   }
   
   @inline(__always)
-  public func listenToVolumeChange(onChange: bridge.Func_void_double) -> Void {
+  public func addListener(onChange: bridge.Func_void_double) -> Void {
     do {
-      try self.__implementation.listenToVolumeChange(onChange: { () -> ((Double) -> Void) in
+      try self.__implementation.addListener(onChange: { () -> ((Double) -> Void) in
         let __sharedClosure = bridge.share_Func_void_double(onChange)
         return { (__o: Double) -> Void in
           __sharedClosure.pointee.call(__o)
